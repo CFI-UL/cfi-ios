@@ -26,6 +26,11 @@ import Foundation
 
 protocol CFISchemeDelegate: class {}
 
+protocol AuthentificationDelegate: CFISchemeDelegate {
+    func didAuthenticate()
+    func didCancelAuthentification()
+}
+
 class CFIScheme {
     weak var delegate: CFISchemeDelegate?
     let command: String

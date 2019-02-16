@@ -8,3 +8,9 @@ target 'cfi' do
   pod 'KeychainAccess'
 end
 
+target 'siri' do
+  use_frameworks!
+
+  pod 'KeychainAccess'
+end
+

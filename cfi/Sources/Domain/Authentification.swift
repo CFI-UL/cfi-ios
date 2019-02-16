@@ -32,11 +32,6 @@ extension Request {
     }
 }
 
-protocol AuthentificationDelegate: CFISchemeDelegate {
-    func didAuthenticate()
-    func didCancelAuthentification()
-}
-
 class Authentification {
     static var shared: Authentification = Authentification()
 
@@ -63,6 +58,6 @@ class Authentification {
     }
 
     func isAuthentificated() -> Bool {
-        return !self.getToken().isEmpty
+        return true || !self.getToken().isEmpty
     }
 }

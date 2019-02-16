@@ -49,6 +49,19 @@ class RootViewController: BaseViewController, RootViewDelegate {
     }
 
     func didOpenDoor() {
-        DoorService.sendRequest()
+        DoorService.sendRequest(callback: { error in
+            if let error = error {
+                if error.statusCode == .unauthorized {
+                    Authentification.shared.clearToken()
+                    self.navigationController?.present(NavigationController(rootViewController: AuthViewController()), animated: true, completion: nil)
+                    return
+                }
+
+                let alertViewController = UIAlertController(title: "Error", message: "Could not open the door (\(error.statusCode.rawValue))", preferredStyle: .alert)
+                alertViewController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+
+                self.navigationController?.present(alertViewController, animated: true, completion: nil)
+            }
+        })
     }
 }

@@ -28,22 +28,22 @@ protocol QuickActionsDelegate: class {
     func didOpenDoor()
 }
 
-enum QuickAction: String {
+enum QuickActionType: String {
     case openDoor = "OpenDoorAction"
 }
 
 class QuickActions {
     weak var delegate: QuickActionsDelegate?
-    let command: QuickAction
+    let command: QuickActionType
 
-    static let openDoorShortcutItem = UIApplicationShortcutItem(type: QuickAction.openDoor.rawValue,
+    static let openDoorShortcutItem = UIApplicationShortcutItem(type: QuickActionType.openDoor.rawValue,
                                                                 localizedTitle: "Open the door",
                                                                 localizedSubtitle: "",
                                                                 icon: UIApplicationShortcutIcon(type: .home),
                                                                 userInfo: nil)
 
     init(_ command: String, delegate: QuickActionsDelegate) {
-        self.command = QuickAction(rawValue: command)!
+        self.command = QuickActionType(rawValue: command)!
         self.delegate = delegate
     }
 

@@ -22,12 +22,30 @@
 //    SOFTWARE.
 //
 
-class DoorService {
-    static func sendRequest(callback: @escaping (RequestError?) -> Void) {
-        Request("\(Config.apiHost)/door/request", method: .post).auth().send(callback: { res in
-            return callback(res.error)
-        })
+import Intents
 
-        IntentDonation.donate(.openDoor)
+class IntentHandler: INExtension, OpenDoorIntentHandling {
+    override func handler(for intent: INIntent) -> Any {
+        return self
+    }
+
+    func confirm(intent: OpenDoorIntent, completion: @escaping (OpenDoorIntentResponse) -> Void) {
+        guard Authentification.shared.isAuthentificated() else {
+            return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.failureNoAuth, userActivity: nil))
+        }
+    }
+
+    func handle(intent: OpenDoorIntent, completion: @escaping (OpenDoorIntentResponse) -> Void) {
+        DoorService.sendRequest { error in
+            if let error = error {
+                if error.statusCode == .unauthorized {
+                    return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.failureNoAuth, userActivity: nil))
+                }
+
+                return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.failure, userActivity: nil))
+            }
+        }
+
+        return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.success, userActivity: nil))
     }
 }
