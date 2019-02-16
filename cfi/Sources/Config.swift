@@ -8,6 +8,6 @@
 
 class Config {
     static let slackClientId: String = "86349330102.552696997859"
-    static let apiHost: String = "http://10.248.58.115:8888"
+    static let apiHost: String = "http://web.poptheshell.com:8888"
 }
 

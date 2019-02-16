@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthentificationDelegate 
         self.window!.backgroundColor = .white
         self.window!.tintColor = .primary
 
-        Authentification.shared.clearToken()
+//        Authentification.shared.clearToken()
 
         self.window!.rootViewController = NavigationController(rootViewController:
             Authentification.shared.isAuthentificated() ?
