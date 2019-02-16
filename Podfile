@@ -5,7 +5,6 @@ target 'cfi' do
   use_frameworks!
 
   pod 'PinLayout'
-  pod 'SwiftSH'
   pod 'KeychainAccess'
 end
 
