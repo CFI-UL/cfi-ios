@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        application.shortcutItems = QuickActions.generateShortcut()
+        application.shortcutItems = QuickActions.generateActions()
     }
 
     /// Handle request made to url starting with cfi://
