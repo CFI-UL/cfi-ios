@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4BD07AB82D0C828409EC440B /* Pods_cfi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73F4581210C4089368669E9 /* Pods_cfi.framework */; };
+		FE9D40F522180E8F00B5028A /* DoorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9D40F422180E8F00B5028A /* DoorService.swift */; };
+		FE9D40F72218187000B5028A /* QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9D40F62218187000B5028A /* QuickActions.swift */; };
 		FE9F38702217747000A204CC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F386F2217747000A204CC /* Request.swift */; };
 		FE9F387322177B4000A204CC /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387222177B4000A204CC /* AuthViewController.swift */; };
 		FE9F387522177BF300A204CC /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387422177BF300A204CC /* AuthView.swift */; };
@@ -20,7 +22,6 @@
 		FEFDA34C220FEE85001D02E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEFDA34B220FEE85001D02E2 /* Assets.xcassets */; };
 		FEFDA34F220FEE85001D02E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEFDA34D220FEE85001D02E2 /* LaunchScreen.storyboard */; };
 		FEFDA35C220FF00A001D02E2 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDA35B220FF00A001D02E2 /* Stylesheet.swift */; };
-		FEFDA360220FFBC8001D02E2 /* SSH.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDA35F220FFBC8001D02E2 /* SSH.swift */; };
 		FEFDA3632210001F001D02E2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDA3622210001F001D02E2 /* RootView.swift */; };
 		FEFDA366221000EE001D02E2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDA365221000EE001D02E2 /* BaseViewController.swift */; };
 		FEFDA36A22100214001D02E2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDA36922100214001D02E2 /* NavigationController.swift */; };
@@ -43,6 +44,8 @@
 		5790B3FBA82E2FBD67BA8DBA /* Pods-cfi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cfi.release.xcconfig"; path = "Pods/Target Support Files/Pods-cfi/Pods-cfi.release.xcconfig"; sourceTree = "<group>"; };
 		9C1D8846A7A2ADC2B3239E71 /* Pods-cfi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cfi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cfi/Pods-cfi.debug.xcconfig"; sourceTree = "<group>"; };
 		C73F4581210C4089368669E9 /* Pods_cfi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cfi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE9D40F422180E8F00B5028A /* DoorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorService.swift; sourceTree = "<group>"; };
+		FE9D40F62218187000B5028A /* QuickActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActions.swift; sourceTree = "<group>"; };
 		FE9F386F2217747000A204CC /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		FE9F387222177B4000A204CC /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FE9F387422177BF300A204CC /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -57,7 +60,6 @@
 		FEFDA34E220FEE85001D02E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEFDA350220FEE85001D02E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEFDA35B220FF00A001D02E2 /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
-		FEFDA35F220FFBC8001D02E2 /* SSH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSH.swift; sourceTree = "<group>"; };
 		FEFDA3622210001F001D02E2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		FEFDA365221000EE001D02E2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FEFDA36922100214001D02E2 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE9D40F322180E6B00B5028A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FE9D40F422180E8F00B5028A /* DoorService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		FE9F387122177A9600A204CC /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		FE9F387A2217B9D900A204CC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				FE9D40F322180E6B00B5028A /* Service */,
 				FE9F387B2217B9E700A204CC /* Authentification.swift */,
 			);
 			path = Domain;
@@ -145,6 +156,7 @@
 				FEFDA35A220FEFEF001D02E2 /* UI */,
 				FE9F387622179F6B00A204CC /* Config.swift */,
 				FE9F387D2217C9B600A204CC /* CFIScheme.swift */,
+				FE9D40F62218187000B5028A /* QuickActions.swift */,
 				FEFDA344220FEE84001D02E2 /* AppDelegate.swift */,
 			);
 			path = Sources;
@@ -181,7 +193,6 @@
 		FEFDA35E220FFBBD001D02E2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FEFDA35F220FFBC8001D02E2 /* SSH.swift */,
 				FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */,
 				FE9F386F2217747000A204CC /* Request.swift */,
 			);
@@ -331,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEFDA347220FEE84001D02E2 /* RootViewController.swift in Sources */,
-				FEFDA360220FFBC8001D02E2 /* SSH.swift in Sources */,
 				FE9F387322177B4000A204CC /* AuthViewController.swift in Sources */,
 				FEFDA345220FEE84001D02E2 /* AppDelegate.swift in Sources */,
 				FE9F387722179F6B00A204CC /* Config.swift in Sources */,
@@ -341,9 +351,11 @@
 				FEFDA3632210001F001D02E2 /* RootView.swift in Sources */,
 				FEFDA36A22100214001D02E2 /* NavigationController.swift in Sources */,
 				FE9F38702217747000A204CC /* Request.swift in Sources */,
+				FE9D40F72218187000B5028A /* QuickActions.swift in Sources */,
 				FE9F387E2217C9B600A204CC /* CFIScheme.swift in Sources */,
 				FE9F387522177BF300A204CC /* AuthView.swift in Sources */,
 				FEFDA366221000EE001D02E2 /* BaseViewController.swift in Sources */,
+				FE9D40F522180E8F00B5028A /* DoorService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

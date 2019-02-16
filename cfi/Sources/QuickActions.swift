@@ -22,45 +22,44 @@
 //    SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-protocol CFISchemeDelegate: class {}
+protocol QuickActionsDelegate: class {
+    func didOpenDoor()
+}
 
-class CFIScheme {
-    weak var delegate: CFISchemeDelegate?
-    let command: String
+enum QuickAction: String {
+    case openDoor = "OpenDoorAction"
+}
 
-    init(_ command: String, delegate: CFISchemeDelegate? = nil) {
-        self.command = command
+class QuickActions {
+    weak var delegate: QuickActionsDelegate?
+    let command: QuickAction
+
+    static let openDoorShortcutItem = UIApplicationShortcutItem(type: QuickAction.openDoor.rawValue,
+                                                                localizedTitle: "Open the door",
+                                                                localizedSubtitle: "",
+                                                                icon: UIApplicationShortcutIcon(type: .home),
+                                                                userInfo: nil)
+
+    init(_ command: String, delegate: QuickActionsDelegate) {
+        self.command = QuickAction(rawValue: command)!
         self.delegate = delegate
     }
 
-    func process(_ params: [URLQueryItem]?) {
+    func process(_ userInfo: [String: NSSecureCoding]? = nil) {
         switch self.command {
-        case "Auth":
-            guard let params = params else { return }
-            self.auth(params)
-        default:
-            print("Unknown CFI scheme command \(self.command)")
-            return
+        case .openDoor: self.delegate?.didOpenDoor()
         }
     }
 
-    private func auth(_ params: [URLQueryItem]) {
-        guard let token = params.first(where: { $0.name == "access_token" })?.value else {
-            print(params)
+    static func generateActions() -> [UIApplicationShortcutItem] {
+        var shortcuts: [UIApplicationShortcutItem] = []
 
-            if let delegate = self.delegate as? AuthentificationDelegate {
-                delegate.didCancelAuthentification()
-            }
-
-            return
+        if Authentification.shared.isAuthentificated() {
+            shortcuts.append(QuickActions.openDoorShortcutItem)
         }
 
-        Authentification.shared.saveToken(token)
-
-        if let delegate = self.delegate as? AuthentificationDelegate {
-            delegate.didAuthenticate()
-        }
+        return shortcuts
     }
 }
