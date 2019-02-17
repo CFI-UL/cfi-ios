@@ -43,7 +43,7 @@ class Authentification {
         return URL(string: "\(host)?scope=\(scope)&client_id=\(Config.slackClientId)&redirect_uri=\(redirectURI)")!
     }
 
-    let keychain = Keychain(service: "ca.cfi-ul.cfi")
+    let keychain = Keychain(service: Config.keychainService, accessGroup: Config.keychainAccessGroup)
 
     func saveToken(_ token: String) {
         self.keychain["access_token"] = token
@@ -59,6 +59,6 @@ class Authentification {
     }
 
     func isAuthentificated() -> Bool {
-        return !self.getToken().isEmpty
+        return !self.getToken().isEmpty || Config.mockAuth
     }
 }

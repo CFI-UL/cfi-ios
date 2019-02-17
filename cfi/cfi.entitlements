@@ -6,8 +6,7 @@
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)ca.cfi-ul.cfi</string>
-		<string>$(AppIdentifierPrefix)ca.cfi-ul.cfi.siri</string>
+		<string>$(AppIdentifierPrefix)ca.cfiul.shared</string>
 	</array>
 </dict>
 </plist>
