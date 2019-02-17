@@ -50,6 +50,7 @@ class Authentification {
     }
 
     func getToken() -> String {
+        
         return self.keychain["access_token"] ?? ""
     }
 
@@ -58,6 +59,6 @@ class Authentification {
     }
 
     func isAuthentificated() -> Bool {
-        return true || !self.getToken().isEmpty
+        return !self.getToken().isEmpty
     }
 }

@@ -32,5 +32,7 @@ class Stylesheet {
 }
 
 extension UIColor {
-    class var primary: UIColor { return UIColor(hex: 0xE56765) }
+    class var primary: UIColor { return UIColor(hex: 0xE56866) }
+    class var darkBlue: UIColor { return UIColor(hex: 0x3B3D44) }
+    class var translucentWhite: UIColor { return UIColor(hex: 0xFFFFFF, alpha: 0.75) }
 }

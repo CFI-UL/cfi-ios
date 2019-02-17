@@ -23,38 +23,17 @@
 //
 
 import UIKit
-import SafariServices
+import PinLayout
 
-class AuthViewController: BaseViewController, AuthViewDelegate {
-    private var mainView: AuthView {
-        return self.view as! AuthView
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        self.title = "Login"
+class TitleLabel: UILabel {
+    init(text: String) {
+        super.init(frame: .zero)
+        self.text = text
+        self.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        self.textColor = .white
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func loadView() {
-        self.view = AuthView()
-        self.mainView.delegate = self
-    }
-
-    func didInitiateLogin() {
-        let safariViewController = SFSafariViewController(url: Authentification.authorizationURL)
-        self.present(safariViewController, animated: true, completion: nil)
-    }
-
-    func didInitiateJoin() {
-        let safariViewController = SFSafariViewController(url: URL(string: Config.joinSlackHost)!)
-        self.present(safariViewController, animated: true, completion: nil)
     }
 }

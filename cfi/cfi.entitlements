@@ -4,5 +4,10 @@
 <dict>
 	<key>com.apple.developer.siri</key>
 	<true/>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)ca.cfi-ul.cfi</string>
+		<string>$(AppIdentifierPrefix)ca.cfi-ul.cfi.siri</string>
+	</array>
 </dict>
 </plist>

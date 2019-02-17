@@ -107,6 +107,7 @@ public enum HTTPStatusCode: Int {
     requestedRangeNotSatisfiable = 416,
     expectationFailed = 417,
     isTeapot = 418,
+    tooManyRequest = 429,
 
     internalServerError = 500,
     notImplemented = 501,

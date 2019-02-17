@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4BD07AB82D0C828409EC440B /* Pods_cfi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73F4581210C4089368669E9 /* Pods_cfi.framework */; };
 		CCFDD8CD047C2A822E1DC953 /* Pods_siri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B23D17F35A90B462F9B1C5 /* Pods_siri.framework */; };
+		FE04983E2219152B00C1D3CD /* UIImage+FrigKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE04983D2219152B00C1D3CD /* UIImage+FrigKit.swift */; };
 		FE7740F322182083008EE74E /* Door.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FE7740F222182083008EE74E /* Door.intentdefinition */; };
 		FE7740F4221822DD008EE74E /* Door.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FE7740F222182083008EE74E /* Door.intentdefinition */; };
 		FE77410422182562008EE74E /* Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387B2217B9E700A204CC /* Authentification.swift */; };
@@ -28,6 +29,10 @@
 		FE9F38792217B98200A204CC /* UIColor+FrigKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */; };
 		FE9F387C2217B9E700A204CC /* Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387B2217B9E700A204CC /* Authentification.swift */; };
 		FE9F387E2217C9B600A204CC /* CFIScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387D2217C9B600A204CC /* CFIScheme.swift */; };
+		FECFAE512218AB6000CAFCE2 /* SesameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E5221877DC0054936D /* SesameViewController.swift */; };
+		FECFAE522218AB6400CAFCE2 /* SesameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E4221877DC0054936D /* SesameView.swift */; };
+		FECFAE542218FCA400CAFCE2 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */; };
+		FECFAE562218FE5D00CAFCE2 /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECFAE552218FE5D00CAFCE2 /* FeatureView.swift */; };
 		FEFDA345220FEE84001D02E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDA344220FEE84001D02E2 /* AppDelegate.swift */; };
 		FEFDA347220FEE84001D02E2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDA346220FEE84001D02E2 /* RootViewController.swift */; };
 		FEFDA34C220FEE85001D02E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEFDA34B220FEE85001D02E2 /* Assets.xcassets */; };
@@ -79,6 +84,9 @@
 		A6FDE8AFC6727779CA21534C /* Pods-siri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-siri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-siri/Pods-siri.debug.xcconfig"; sourceTree = "<group>"; };
 		B785968423AD6236EEC88EDF /* Pods-siri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-siri.release.xcconfig"; path = "Pods/Target Support Files/Pods-siri/Pods-siri.release.xcconfig"; sourceTree = "<group>"; };
 		C73F4581210C4089368669E9 /* Pods_cfi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cfi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE04983D2219152B00C1D3CD /* UIImage+FrigKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+FrigKit.swift"; sourceTree = "<group>"; };
+		FE27F3E4221877DC0054936D /* SesameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesameView.swift; sourceTree = "<group>"; };
+		FE27F3E5221877DC0054936D /* SesameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesameViewController.swift; sourceTree = "<group>"; };
 		FE7740F122182010008EE74E /* cfi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cfi.entitlements; sourceTree = "<group>"; };
 		FE7740F222182083008EE74E /* Door.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Door.intentdefinition; sourceTree = "<group>"; };
 		FE77410822182A5B008EE74E /* IntentDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentDonation.swift; sourceTree = "<group>"; };
@@ -94,6 +102,8 @@
 		FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FrigKit.swift"; sourceTree = "<group>"; };
 		FE9F387B2217B9E700A204CC /* Authentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentification.swift; sourceTree = "<group>"; };
 		FE9F387D2217C9B600A204CC /* CFIScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIScheme.swift; sourceTree = "<group>"; };
+		FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		FECFAE552218FE5D00CAFCE2 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		FEFDA341220FEE84001D02E2 /* cfi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cfi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFDA344220FEE84001D02E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEFDA346220FEE84001D02E2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +154,15 @@
 				A1B23D17F35A90B462F9B1C5 /* Pods_siri.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE27F3E3221877CC0054936D /* Sesame */ = {
+			isa = PBXGroup;
+			children = (
+				FE27F3E5221877DC0054936D /* SesameViewController.swift */,
+				FE27F3E4221877DC0054936D /* SesameView.swift */,
+			);
+			path = Sesame;
 			sourceTree = "<group>";
 		};
 		FE9D40F322180E6B00B5028A /* Service */ = {
@@ -219,11 +238,11 @@
 				FE9F387A2217B9D900A204CC /* Domain */,
 				FEFDA35E220FFBBD001D02E2 /* Helpers */,
 				FEFDA35A220FEFEF001D02E2 /* UI */,
-				FE9F387622179F6B00A204CC /* Config.swift */,
 				FE77410822182A5B008EE74E /* IntentDonation.swift */,
 				FE9F387D2217C9B600A204CC /* CFIScheme.swift */,
 				FE9D40F62218187000B5028A /* QuickActions.swift */,
 				FEFDA344220FEE84001D02E2 /* AppDelegate.swift */,
+				FE9F387622179F6B00A204CC /* Config.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -242,6 +261,7 @@
 				FEFDA364221000DC001D02E2 /* Common */,
 				FE9F387122177A9600A204CC /* Auth */,
 				FEFDA361220FFFF6001D02E2 /* Root */,
+				FE27F3E3221877CC0054936D /* Sesame */,
 				FEFDA35B220FF00A001D02E2 /* Stylesheet.swift */,
 			);
 			path = UI;
@@ -259,6 +279,7 @@
 		FEFDA35E220FFBBD001D02E2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FE04983D2219152B00C1D3CD /* UIImage+FrigKit.swift */,
 				FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */,
 				FE9F386F2217747000A204CC /* Request.swift */,
 			);
@@ -279,6 +300,8 @@
 			children = (
 				FEFDA365221000EE001D02E2 /* BaseViewController.swift */,
 				FEFDA36922100214001D02E2 /* NavigationController.swift */,
+				FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */,
+				FECFAE552218FE5D00CAFCE2 /* FeatureView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -342,6 +365,9 @@
 					FEFDA340220FEE84001D02E2 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Siri = {
 								enabled = 1;
 							};
@@ -477,6 +503,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FECFAE562218FE5D00CAFCE2 /* FeatureView.swift in Sources */,
+				FECFAE522218AB6400CAFCE2 /* SesameView.swift in Sources */,
 				FE77410922182A5B008EE74E /* IntentDonation.swift in Sources */,
 				FEFDA347220FEE84001D02E2 /* RootViewController.swift in Sources */,
 				FE9F387322177B4000A204CC /* AuthViewController.swift in Sources */,
@@ -485,9 +513,12 @@
 				FE9F387722179F6B00A204CC /* Config.swift in Sources */,
 				FE9F38792217B98200A204CC /* UIColor+FrigKit.swift in Sources */,
 				FE9F387C2217B9E700A204CC /* Authentification.swift in Sources */,
+				FECFAE512218AB6000CAFCE2 /* SesameViewController.swift in Sources */,
 				FEFDA35C220FF00A001D02E2 /* Stylesheet.swift in Sources */,
 				FEFDA3632210001F001D02E2 /* RootView.swift in Sources */,
 				FEFDA36A22100214001D02E2 /* NavigationController.swift in Sources */,
+				FE04983E2219152B00C1D3CD /* UIImage+FrigKit.swift in Sources */,
+				FECFAE542218FCA400CAFCE2 /* TitleLabel.swift in Sources */,
 				FE9F38702217747000A204CC /* Request.swift in Sources */,
 				FE9D40F72218187000B5028A /* QuickActions.swift in Sources */,
 				FE9F387E2217C9B600A204CC /* CFIScheme.swift in Sources */,

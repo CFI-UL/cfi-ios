@@ -23,38 +23,23 @@
 //
 
 import UIKit
-import SafariServices
 
-class AuthViewController: BaseViewController, AuthViewDelegate {
-    private var mainView: AuthView {
-        return self.view as! AuthView
-    }
+extension UIImage {
+    func of(size: CGSize) -> UIImage {
+        let widthRatio  = size.width  / self.size.width
+        let heightRatio = size.height / self.size.height
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+        let newSize = widthRatio > heightRatio ?
+            CGSize(width: size.width * heightRatio, height: size.height * heightRatio) :
+            CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
 
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        self.title = "Login"
-    }
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
 
-    override func loadView() {
-        self.view = AuthView()
-        self.mainView.delegate = self
-    }
-
-    func didInitiateLogin() {
-        let safariViewController = SFSafariViewController(url: Authentification.authorizationURL)
-        self.present(safariViewController, animated: true, completion: nil)
-    }
-
-    func didInitiateJoin() {
-        let safariViewController = SFSafariViewController(url: URL(string: Config.joinSlackHost)!)
-        self.present(safariViewController, animated: true, completion: nil)
+        return newImage ?? self
     }
 }

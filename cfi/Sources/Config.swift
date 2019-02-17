@@ -25,5 +25,6 @@
 class Config {
     static let slackClientId: String = "86349330102.552696997859"
     static let apiHost: String = "http://web.poptheshell.com:8888"
+    static let joinSlackHost: String = "http://slack.cfiul.ca"
+    static let preserveSession: Bool = false
 }
-

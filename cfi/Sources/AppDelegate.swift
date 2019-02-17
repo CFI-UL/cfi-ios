@@ -35,13 +35,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.backgroundColor = .white
         self.window!.tintColor = .primary
 
+        if !Config.preserveSession {
+            Authentification.shared.clearToken()
+        }
+
         if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             QuickActions(shortcutItem.type, delegate: self).process(shortcutItem.userInfo)
         } else {
-            self.window!.rootViewController = NavigationController(rootViewController:
+            self.window!.rootViewController =
                 Authentification.shared.isAuthentificated() ?
-                    RootViewController() :
-                    AuthViewController())
+                    SesameViewController() :
+                    AuthViewController()
         }
 
         self.window!.makeKeyAndVisible()
@@ -68,9 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: AuthentificationDelegate {
     func didAuthenticate() {
-        let viewController = NavigationController(rootViewController: RootViewController())
         self.window?.rootViewController?.dismiss(animated: true, completion: {
-            self.window?.rootViewController?.present(viewController, animated: true, completion: nil)
+            self.window?.rootViewController?.present(SesameViewController(), animated: true, completion: nil)
         })
     }
 
@@ -86,8 +89,6 @@ extension AppDelegate: AuthentificationDelegate {
 
 extension AppDelegate: QuickActionsDelegate {
     func didOpenDoor() {
-        let viewController = RootViewController()
-        viewController.didOpenDoor()
-        self.window?.rootViewController = NavigationController(rootViewController: viewController)
+        self.window?.rootViewController = SesameViewController(shouldSendRequest: true)
     }
 }

@@ -27,27 +27,37 @@ import PinLayout
 
 protocol AuthViewDelegate: class {
     func didInitiateLogin()
+    func didInitiateJoin()
 }
 
 class AuthView: UIView {
     weak var delegate: AuthViewDelegate?
 
+    private let titleLabel = TitleLabel(text: "Sign in")
+    private let featureView = FeatureView(icon: #imageLiteral(resourceName: "icon-id"), description: "You'll need to join the Slack to use the app")
+
     private let loginButton = UIButton()
-    private let logo = UIImageView()
+    private let joinSlackButton = UIButton()
 
     init() {
         super.init(frame: .zero)
 
+        self.addSubview(self.titleLabel)
+        self.addSubview(self.featureView)
         self.addSubview(self.loginButton)
-        self.addSubview(self.logo)
+        self.addSubview(self.joinSlackButton)
 
-        self.backgroundColor = .white
-
-        self.logo.image = #imageLiteral(resourceName: "LogoCFI")
+        self.backgroundColor = .primary
 
         self.loginButton.setImage(#imageLiteral(resourceName: "SlackLogin"), for: .normal)
         self.loginButton.imageView?.contentMode = .scaleAspectFit
         self.loginButton.addTarget(self, action: #selector(self.login), for: .touchUpInside)
+
+        self.joinSlackButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        self.joinSlackButton.setTitleColor(.translucentWhite, for: .normal)
+        self.joinSlackButton.setTitleColor(UIColor.translucentWhite.alterOpacity(by: -0.3), for: .highlighted)
+        self.joinSlackButton.setTitle("Join the Slack", for: .normal)
+        self.joinSlackButton.addTarget(self, action: #selector(self.join), for: .touchUpInside)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -56,11 +66,14 @@ class AuthView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.logo.pin.width(50%).maxWidth(300).aspectRatio().center().marginTop(-48)
-        self.loginButton.pin.below(of: self.logo).height(45).width(90%).maxWidth(300).hCenter().marginTop(48)
+
+        self.titleLabel.pin.top(160).left(50).right(50).sizeToFit()
+        self.featureView.pin.below(of: self.titleLabel, aligned: .start).marginTop(50)
+
+        self.loginButton.pin.below(of: self.featureView).height(45).width(90%).hCenter().marginTop(200)
+        self.joinSlackButton.pin.bottom(50).hCenter().sizeToFit()
     }
 
-    @objc func login(sender: Any) {
-        self.delegate?.didInitiateLogin()
-    }
+    @objc func login(_ sender: Any) { self.delegate?.didInitiateLogin() }
+    @objc func join(_ sender: Any) { self.delegate?.didInitiateJoin() }
 }
