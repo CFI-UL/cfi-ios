@@ -49,9 +49,6 @@ class RootHeaderView: UICollectionReusableView {
 
         self.profileImageView.contentMode = .scaleAspectFill
         self.profileImageView.clipsToBounds = true
-
-        self.nameLabel.text = "Xehos."
-        self.profileImageView.image = #imageLiteral(resourceName: "profile")
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -97,8 +94,11 @@ class RootHeaderView: UICollectionReusableView {
         path.fill()
     }
 
-    func setUserInfo(name: String, profileImage: UIImage) {
-        self.nameLabel.text = "\((name.split(separator: " ").first ?? "").capitalized)."
+    func configure(name: String, profileImage: UIImage?) {
+        var name = "\((name.split(separator: " ").first ?? "").capitalized)"
+        name += name.isEmpty ? "" : "."
+
+        self.nameLabel.text = name
         self.profileImageView.image = profileImage
         self.setNeedsLayout()
         self.layoutSubviews()

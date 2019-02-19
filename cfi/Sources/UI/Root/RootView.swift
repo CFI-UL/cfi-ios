@@ -79,10 +79,10 @@ class RootView: UIView {
         self.refreshView.pin.above(of: self.collectionView).horizontally().height(of: self.collectionView)
     }
 
-    func setUserInfo(name: String, profileImage: UIImage) {
+    func configure(name: String, profileImage: UIImage?) {
         self.name = name
         self.profileImage = profileImage
-        self.collectionView.reloadData() // should only reload the header
+        self.collectionView.reloadData() // TODO reload only header section
     }
 }
 
@@ -114,7 +114,7 @@ extension RootView: UICollectionViewDataSource {
         }
 
         let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "root-header", for: indexPath) as? RootHeaderView ?? RootHeaderView()
-        //        header.setUserInfo(name: self.name, profileImage: self.profileImage ?? UIImage()) // replace with default image
+            header.configure(name: self.name, profileImage: self.profileImage)
         return header
     }
 }

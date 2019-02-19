@@ -26,6 +26,12 @@
 import UIKit
 
 class RootViewController: BaseViewController, RootViewDelegate {
+    private let userService: UserService?
+
+    private var username: String?
+    private var profilePicture: UIImage? = nil
+    private var useDefaultProfilePicture = false
+
     private var mainView: RootView {
         return self.view as! RootView
     }
@@ -35,8 +41,25 @@ class RootViewController: BaseViewController, RootViewDelegate {
     }
 
     init() {
+        self.userService = UserService(for: Authentification.shared.getToken())
         super.init(nibName: nil, bundle: nil)
-        self.title = "Home"
+
+        if let service = self.userService {
+            service.getUsername { username in
+                self.username = username
+                self.configureSubviews()
+            }
+
+            service.getProfilePicture { profilePicture in
+                if let picture = profilePicture {
+                    self.profilePicture = picture
+                } else {
+                    self.useDefaultProfilePicture = true
+                }
+
+                self.configureSubviews()
+            }
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -46,6 +69,14 @@ class RootViewController: BaseViewController, RootViewDelegate {
     override func loadView() {
         self.view = RootView()
         self.mainView.delegate = self
+    }
+
+    private func configureSubviews() {
+        guard let username = self.username else { return }
+
+        if self.profilePicture != nil || self.useDefaultProfilePicture {
+            self.mainView.configure(name: username, profileImage: self.profilePicture)
+        }
     }
 
     func didRequestTransition(to viewController: UIViewController) {

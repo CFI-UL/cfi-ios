@@ -33,6 +33,10 @@
 		FE9F38792217B98200A204CC /* UIColor+FrigKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */; };
 		FE9F387C2217B9E700A204CC /* Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387B2217B9E700A204CC /* Authentification.swift */; };
 		FE9F387E2217C9B600A204CC /* CFIScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387D2217C9B600A204CC /* CFIScheme.swift */; };
+		FEA039D3221C059200430558 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039D2221C059200430558 /* UserService.swift */; };
+		FEA039D5221C062C00430558 /* String+FrigKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039D4221C062C00430558 /* String+FrigKit.swift */; };
+		FEA039D7221C075300430558 /* JSONWebToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039D6221C075300430558 /* JSONWebToken.swift */; };
+		FEA039D9221C0E5000430558 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039D8221C0E5000430558 /* ViewControllerFactory.swift */; };
 		FECFAE512218AB6000CAFCE2 /* SesameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E5221877DC0054936D /* SesameViewController.swift */; };
 		FECFAE522218AB6400CAFCE2 /* SesameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E4221877DC0054936D /* SesameView.swift */; };
 		FECFAE542218FCA400CAFCE2 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */; };
@@ -110,6 +114,10 @@
 		FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FrigKit.swift"; sourceTree = "<group>"; };
 		FE9F387B2217B9E700A204CC /* Authentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentification.swift; sourceTree = "<group>"; };
 		FE9F387D2217C9B600A204CC /* CFIScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIScheme.swift; sourceTree = "<group>"; };
+		FEA039D2221C059200430558 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FEA039D4221C062C00430558 /* String+FrigKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FrigKit.swift"; sourceTree = "<group>"; };
+		FEA039D6221C075300430558 /* JSONWebToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWebToken.swift; sourceTree = "<group>"; };
+		FEA039D8221C0E5000430558 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		FECFAE552218FE5D00CAFCE2 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		FEFDA341220FEE84001D02E2 /* cfi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cfi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				FE9D40F422180E8F00B5028A /* DoorService.swift */,
+				FEA039D2221C059200430558 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -289,6 +298,7 @@
 				FEFDA361220FFFF6001D02E2 /* Root */,
 				FE27F3E3221877CC0054936D /* Sesame */,
 				FEFDA35B220FF00A001D02E2 /* Stylesheet.swift */,
+				FEA039D8221C0E5000430558 /* ViewControllerFactory.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -306,8 +316,10 @@
 		FEFDA35E220FFBBD001D02E2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FEA039D4221C062C00430558 /* String+FrigKit.swift */,
 				FE04983D2219152B00C1D3CD /* UIImage+FrigKit.swift */,
 				FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */,
+				FEA039D6221C075300430558 /* JSONWebToken.swift */,
 				FE9F386F2217747000A204CC /* Request.swift */,
 			);
 			path = Helpers;
@@ -537,9 +549,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FECFAE562218FE5D00CAFCE2 /* FeatureView.swift in Sources */,
+				FEA039D9221C0E5000430558 /* ViewControllerFactory.swift in Sources */,
+				FEA039D3221C059200430558 /* UserService.swift in Sources */,
 				FECFAE522218AB6400CAFCE2 /* SesameView.swift in Sources */,
 				FE77410922182A5B008EE74E /* IntentDonation.swift in Sources */,
 				FEFDA347220FEE84001D02E2 /* RootViewController.swift in Sources */,
+				FEA039D5221C062C00430558 /* String+FrigKit.swift in Sources */,
 				FE9F387322177B4000A204CC /* AuthViewController.swift in Sources */,
 				FE7740F4221822DD008EE74E /* Door.intentdefinition in Sources */,
 				FEFDA345220FEE84001D02E2 /* AppDelegate.swift in Sources */,
@@ -551,6 +566,7 @@
 				FEFDA35C220FF00A001D02E2 /* Stylesheet.swift in Sources */,
 				FEFDA3632210001F001D02E2 /* RootView.swift in Sources */,
 				FEFDA36A22100214001D02E2 /* NavigationController.swift in Sources */,
+				FEA039D7221C075300430558 /* JSONWebToken.swift in Sources */,
 				FE04983E2219152B00C1D3CD /* UIImage+FrigKit.swift in Sources */,
 				FECFAE542218FCA400CAFCE2 /* TitleLabel.swift in Sources */,
 				FE9F38702217747000A204CC /* Request.swift in Sources */,
