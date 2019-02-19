@@ -66,6 +66,8 @@ class RootView: UIView {
         self.collectionView.dataSource = self
 
         self.refreshView.backgroundColor = .primary
+
+        self.wow()
     }
 
     required init(coder aDecoder: NSCoder) {

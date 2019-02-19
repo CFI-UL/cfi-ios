@@ -49,6 +49,12 @@ class RootHeaderView: UICollectionReusableView {
 
         self.profileImageView.contentMode = .scaleAspectFill
         self.profileImageView.clipsToBounds = true
+
+        self.layoutSubviews()
+        self.welcomeLabel.wow(type: .fadeInDown, delay: 0.25)
+        self.nameLabel.wow(type: .fadeInDown, delay: 0.2)
+        self.titleLabel.wow(type: .fadeInRight, delay: 0.2)
+        self.profileImageView.wow(type: .fadeIn, delay: 0.35)
     }
 
     required init(coder aDecoder: NSCoder) {

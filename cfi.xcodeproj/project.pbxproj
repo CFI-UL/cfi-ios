@@ -37,6 +37,7 @@
 		FEA039D5221C062C00430558 /* String+FrigKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039D4221C062C00430558 /* String+FrigKit.swift */; };
 		FEA039D7221C075300430558 /* JSONWebToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039D6221C075300430558 /* JSONWebToken.swift */; };
 		FEA039D9221C0E5000430558 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039D8221C0E5000430558 /* ViewControllerFactory.swift */; };
+		FEA039DB221C185B00430558 /* UIView+FrigKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA039DA221C185B00430558 /* UIView+FrigKit.swift */; };
 		FECFAE512218AB6000CAFCE2 /* SesameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E5221877DC0054936D /* SesameViewController.swift */; };
 		FECFAE522218AB6400CAFCE2 /* SesameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E4221877DC0054936D /* SesameView.swift */; };
 		FECFAE542218FCA400CAFCE2 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */; };
@@ -118,6 +119,7 @@
 		FEA039D4221C062C00430558 /* String+FrigKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FrigKit.swift"; sourceTree = "<group>"; };
 		FEA039D6221C075300430558 /* JSONWebToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWebToken.swift; sourceTree = "<group>"; };
 		FEA039D8221C0E5000430558 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		FEA039DA221C185B00430558 /* UIView+FrigKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FrigKit.swift"; sourceTree = "<group>"; };
 		FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		FECFAE552218FE5D00CAFCE2 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		FEFDA341220FEE84001D02E2 /* cfi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cfi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				FEA039D4221C062C00430558 /* String+FrigKit.swift */,
+				FEA039DA221C185B00430558 /* UIView+FrigKit.swift */,
 				FE04983D2219152B00C1D3CD /* UIImage+FrigKit.swift */,
 				FE9F38782217B98200A204CC /* UIColor+FrigKit.swift */,
 				FEA039D6221C075300430558 /* JSONWebToken.swift */,
@@ -554,6 +557,7 @@
 				FECFAE522218AB6400CAFCE2 /* SesameView.swift in Sources */,
 				FE77410922182A5B008EE74E /* IntentDonation.swift in Sources */,
 				FEFDA347220FEE84001D02E2 /* RootViewController.swift in Sources */,
+				FEA039DB221C185B00430558 /* UIView+FrigKit.swift in Sources */,
 				FEA039D5221C062C00430558 /* String+FrigKit.swift in Sources */,
 				FE9F387322177B4000A204CC /* AuthViewController.swift in Sources */,
 				FE7740F4221822DD008EE74E /* Door.intentdefinition in Sources */,

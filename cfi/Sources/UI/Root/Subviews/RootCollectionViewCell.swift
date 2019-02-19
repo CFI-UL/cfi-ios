@@ -60,6 +60,8 @@ class RootCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = 5
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.2
+
+        self.wow(delay: 0.5)
     }
 
     required init(coder aDecoder: NSCoder) {
