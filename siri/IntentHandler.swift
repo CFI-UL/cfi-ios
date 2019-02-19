@@ -44,8 +44,8 @@ class IntentHandler: INExtension, OpenDoorIntentHandling {
 
                 return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.failure, userActivity: nil))
             }
-        }
 
-        return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.success, userActivity: nil))
+            return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.success, userActivity: nil))
+        }
     }
 }
