@@ -27,7 +27,8 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
+    private let viewControllerFactory = ViewControllerFactory()
+    private var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Stylesheet.appearance()
@@ -41,10 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             QuickActions(shortcutItem.type, delegate: self).process(shortcutItem.userInfo)
         } else {
-            self.window!.rootViewController =
-                Authentification.shared.isAuthentificated() ?
-                    RootViewController() :
-                    AuthViewController()
+            self.window!.rootViewController = self.viewControllerFactory.firstViewController(auth: Authentification.shared.isAuthentificated())
         }
 
         self.window!.makeKeyAndVisible()
@@ -93,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: AuthentificationDelegate {
     func didAuthenticate() {
         self.window?.rootViewController?.dismiss(animated: true, completion: {
-            self.window?.rootViewController?.present(SesameViewController(), animated: true)
+            self.window?.rootViewController?.present(self.viewControllerFactory.sesameViewController(), animated: true)
         })
     }
 
@@ -109,6 +107,6 @@ extension AppDelegate: AuthentificationDelegate {
 
 extension AppDelegate: QuickActionsDelegate {
     func didOpenDoor() {
-        self.window?.rootViewController = SesameViewController(shouldSendRequest: true)
+        self.window?.rootViewController = self.viewControllerFactory.sesameViewController(shouldSendRequest: true)
     }
 }

@@ -26,7 +26,7 @@ import UIKit
 import PinLayout
 
 protocol RootViewDelegate: class {
-    func didRequestTransition(to viewController: UIViewController)
+    func didRequestTransition(to viewControllerType: ViewControllerType)
 }
 
 class RootView: UIView {
@@ -35,11 +35,11 @@ class RootView: UIView {
     private let refreshView = UIView()
     private let collectionView: UICollectionView
     private let buttons = [
-        ("Events", #imageLiteral(resourceName: "events")),
-        ("Contests", #imageLiteral(resourceName: "contests")),
-        ("Projects", #imageLiteral(resourceName: "projects")),
-        ("Photos", #imageLiteral(resourceName: "photos")),
-        ("Sesame", #imageLiteral(resourceName: "sesame"))
+        ("Events", #imageLiteral(resourceName: "events"), ViewControllerType.events),
+        ("Contests", #imageLiteral(resourceName: "contests"), ViewControllerType.contests),
+        ("Projects", #imageLiteral(resourceName: "projects"), ViewControllerType.projects),
+        ("Photos", #imageLiteral(resourceName: "photos"), ViewControllerType.photos),
+        ("Sesame", #imageLiteral(resourceName: "sesame"), ViewControllerType.sesame)
     ]
 
     private var name: String = ""
@@ -121,17 +121,6 @@ extension RootView: UICollectionViewDataSource {
 
 extension RootView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var viewController: UIViewController
-        // could remove this with a view controller factory and an enum entry stored in the button array
-        switch indexPath.row {
-        case 0: return
-        case 1: return
-        case 2: return
-        case 3: return
-        case 4: viewController = SesameViewController()
-        default: return
-        }
-
-        self.delegate?.didRequestTransition(to: viewController)
+        self.delegate?.didRequestTransition(to: self.buttons[indexPath.row].2)
     }
 }

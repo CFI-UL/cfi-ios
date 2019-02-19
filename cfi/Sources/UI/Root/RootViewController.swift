@@ -79,7 +79,7 @@ class RootViewController: BaseViewController, RootViewDelegate {
         }
     }
 
-    func didRequestTransition(to viewController: UIViewController) {
-        self.present(viewController, animated: true)
+    func didRequestTransition(to viewControllerType: ViewControllerType) {
+        self.present(self.viewControllerFactory.generate(from: viewControllerType), animated: true)
     }
 }
