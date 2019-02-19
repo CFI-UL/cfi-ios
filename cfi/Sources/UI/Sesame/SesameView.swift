@@ -27,6 +27,7 @@ import IntentsUI
 import PinLayout
 
 protocol SesameViewDelegate: class {
+    func didRequestClose()
     func didOpenDoor()
     func didAddToSiri()
 }
@@ -41,21 +42,29 @@ class SesameView: UIView {
     private let titleLabel = TitleLabel(text: "Sesame")
     private let featureView = FeatureView(icon: #imageLiteral(resourceName: "icon-key"), description: "A request will be sent on Slack to open the door")
 
+    private let closeButton = UIButton()
     private let doorButton = UIButton()
     private let siriButton = INUIAddVoiceShortcutButton(style: .whiteOutline)
+
+    private let closeGesture = UISwipeGestureRecognizer()
 
     private var doorState: DoorState = .closed
     private var siriButtonOpened: Bool = false
 
     init() {
         super.init(frame: .zero)
+        self.backgroundColor = .darkBlue
 
         self.addSubview(self.titleLabel)
         self.addSubview(self.featureView)
+        self.addSubview(self.closeButton)
         self.addSubview(self.doorButton)
         self.addSubview(self.siriButton)
+        self.addGestureRecognizer(self.closeGesture)
 
-        self.backgroundColor = .darkBlue
+        self.closeButton.setImage(#imageLiteral(resourceName: "icon-close"), for: .normal)
+        self.closeButton.tintColor = .white
+        self.closeButton.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
 
         self.doorButton.setTitle("Send open request", for: .normal)
         self.doorButton.backgroundColor = .white
@@ -65,7 +74,7 @@ class SesameView: UIView {
         self.doorButton.layer.borderColor = UIColor.lightGray.cgColor
         self.doorButton.layer.cornerRadius = 14
         
-        self.doorButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        self.doorButton.titleLabel?.font = UIFont.apercuBold(ofSize: 13)
         self.doorButton.addTarget(self, action: #selector(self.openDoor), for: .touchUpInside)
 
         self.siriButton.shortcut = INShortcut(intent: OpenDoorIntent())!
@@ -73,6 +82,9 @@ class SesameView: UIView {
         self.siriButton.addTarget(self, action: #selector(self.addToSiri), for: .touchUpInside)
         self.layoutSubviews()
         self.toggleSiriButton()
+
+        self.closeGesture.direction = .down
+        self.closeGesture.addTarget(self, action: #selector(self.dismiss))
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -85,6 +97,7 @@ class SesameView: UIView {
         self.titleLabel.pin.top(160).left(50).right(50).sizeToFit()
         self.featureView.pin.below(of: self.titleLabel, aligned: .start).marginTop(50)
 
+        self.closeButton.pin.right(pin.safeArea.right).top(pin.safeArea.top).size(64)
         self.doorButton.pin.below(of: self.featureView).height(45).width(225).maxWidth(90%).hCenter().marginTop(100)
 
         self.layoutAnimatedView()
@@ -103,6 +116,10 @@ class SesameView: UIView {
         UIView.animate(withDuration: 0.3, delay: delay, options: .curveEaseInOut, animations: {
             self.layoutAnimatedView()
         })
+    }
+
+    @objc func dismiss(_ sender: Any) {
+        self.delegate?.didRequestClose()
     }
 
     @objc func openDoor(_ sender: Any) {

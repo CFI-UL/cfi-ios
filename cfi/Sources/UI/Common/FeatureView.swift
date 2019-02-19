@@ -44,7 +44,7 @@ class FeatureView: UIView {
 
         self.imageView.tintColor = .translucentWhite
 
-        self.featureLabel.font = UIFont.systemFont(ofSize: 13)
+        self.featureLabel.font = UIFont.apercu(ofSize: 13)
         self.featureLabel.textColor = .translucentWhite
         self.featureLabel.numberOfLines = 0
     }

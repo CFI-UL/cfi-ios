@@ -36,3 +36,13 @@ extension UIColor {
     class var darkBlue: UIColor { return UIColor(hex: 0x3B3D44) }
     class var translucentWhite: UIColor { return UIColor(hex: 0xFFFFFF, alpha: 0.75) }
 }
+
+extension UIFont {
+    class func apercu(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "ApercuPro-Regular", size: size)!
+    }
+
+    class func apercuBold(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "ApercuPro-Bold", size: size)!
+    }
+}

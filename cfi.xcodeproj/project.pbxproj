@@ -10,6 +10,10 @@
 		4BD07AB82D0C828409EC440B /* Pods_cfi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73F4581210C4089368669E9 /* Pods_cfi.framework */; };
 		CCFDD8CD047C2A822E1DC953 /* Pods_siri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B23D17F35A90B462F9B1C5 /* Pods_siri.framework */; };
 		FE04983E2219152B00C1D3CD /* UIImage+FrigKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE04983D2219152B00C1D3CD /* UIImage+FrigKit.swift */; };
+		FE3037DA221B81810023487D /* apercu-pro-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE3037D8221B81810023487D /* apercu-pro-bold.otf */; };
+		FE3037DB221B81810023487D /* apercu-pro-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE3037D9221B81810023487D /* apercu-pro-regular.otf */; };
+		FE3037DD221BD1CD0023487D /* RootHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3037DC221BD1CD0023487D /* RootHeaderView.swift */; };
+		FE3037DF221BD2110023487D /* RootCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3037DE221BD2110023487D /* RootCollectionViewCell.swift */; };
 		FE7740F322182083008EE74E /* Door.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FE7740F222182083008EE74E /* Door.intentdefinition */; };
 		FE7740F4221822DD008EE74E /* Door.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FE7740F222182083008EE74E /* Door.intentdefinition */; };
 		FE77410422182562008EE74E /* Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F387B2217B9E700A204CC /* Authentification.swift */; };
@@ -87,6 +91,10 @@
 		FE04983D2219152B00C1D3CD /* UIImage+FrigKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+FrigKit.swift"; sourceTree = "<group>"; };
 		FE27F3E4221877DC0054936D /* SesameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesameView.swift; sourceTree = "<group>"; };
 		FE27F3E5221877DC0054936D /* SesameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesameViewController.swift; sourceTree = "<group>"; };
+		FE3037D8221B81810023487D /* apercu-pro-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "apercu-pro-bold.otf"; sourceTree = "<group>"; };
+		FE3037D9221B81810023487D /* apercu-pro-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "apercu-pro-regular.otf"; sourceTree = "<group>"; };
+		FE3037DC221BD1CD0023487D /* RootHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootHeaderView.swift; sourceTree = "<group>"; };
+		FE3037DE221BD2110023487D /* RootCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCollectionViewCell.swift; sourceTree = "<group>"; };
 		FE7740F122182010008EE74E /* cfi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cfi.entitlements; sourceTree = "<group>"; };
 		FE7740F222182083008EE74E /* Door.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Door.intentdefinition; sourceTree = "<group>"; };
 		FE77410822182A5B008EE74E /* IntentDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentDonation.swift; sourceTree = "<group>"; };
@@ -163,6 +171,24 @@
 				FE27F3E4221877DC0054936D /* SesameView.swift */,
 			);
 			path = Sesame;
+			sourceTree = "<group>";
+		};
+		FE3037D7221B81570023487D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FE3037D8221B81810023487D /* apercu-pro-bold.otf */,
+				FE3037D9221B81810023487D /* apercu-pro-regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FE3037E0221BD2560023487D /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				FE3037DC221BD1CD0023487D /* RootHeaderView.swift */,
+				FE3037DE221BD2110023487D /* RootCollectionViewCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		FE9D40F322180E6B00B5028A /* Service */ = {
@@ -270,6 +296,7 @@
 		FEFDA35D220FF72A001D02E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FE3037D7221B81570023487D /* Fonts */,
 				FEFDA34B220FEE85001D02E2 /* Assets.xcassets */,
 				FEFDA34D220FEE85001D02E2 /* LaunchScreen.storyboard */,
 			);
@@ -289,6 +316,7 @@
 		FEFDA361220FFFF6001D02E2 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				FE3037E0221BD2560023487D /* Subviews */,
 				FEFDA346220FEE84001D02E2 /* RootViewController.swift */,
 				FEFDA3622210001F001D02E2 /* RootView.swift */,
 			);
@@ -368,6 +396,9 @@
 							com.apple.Keychain = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 0;
+							};
 							com.apple.Siri = {
 								enabled = 1;
 							};
@@ -406,6 +437,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3037DB221B81810023487D /* apercu-pro-regular.otf in Resources */,
+				FE3037DA221B81810023487D /* apercu-pro-bold.otf in Resources */,
 				FEFDA34F220FEE85001D02E2 /* LaunchScreen.storyboard in Resources */,
 				FEFDA34C220FEE85001D02E2 /* Assets.xcassets in Resources */,
 			);
@@ -511,6 +544,7 @@
 				FE7740F4221822DD008EE74E /* Door.intentdefinition in Sources */,
 				FEFDA345220FEE84001D02E2 /* AppDelegate.swift in Sources */,
 				FE9F387722179F6B00A204CC /* Config.swift in Sources */,
+				FE3037DD221BD1CD0023487D /* RootHeaderView.swift in Sources */,
 				FE9F38792217B98200A204CC /* UIColor+FrigKit.swift in Sources */,
 				FE9F387C2217B9E700A204CC /* Authentification.swift in Sources */,
 				FECFAE512218AB6000CAFCE2 /* SesameViewController.swift in Sources */,
@@ -520,6 +554,7 @@
 				FE04983E2219152B00C1D3CD /* UIImage+FrigKit.swift in Sources */,
 				FECFAE542218FCA400CAFCE2 /* TitleLabel.swift in Sources */,
 				FE9F38702217747000A204CC /* Request.swift in Sources */,
+				FE3037DF221BD2110023487D /* RootCollectionViewCell.swift in Sources */,
 				FE9D40F72218187000B5028A /* QuickActions.swift in Sources */,
 				FE9F387E2217C9B600A204CC /* CFIScheme.swift in Sources */,
 				FE9F387522177BF300A204CC /* AuthView.swift in Sources */,

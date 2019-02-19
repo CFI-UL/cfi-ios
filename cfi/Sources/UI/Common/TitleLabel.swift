@@ -29,7 +29,8 @@ class TitleLabel: UILabel {
     init(text: String) {
         super.init(frame: .zero)
         self.text = text
-        self.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        self.font = UIFont.apercuBold(ofSize: 38)
+        self.numberOfLines = 1
         self.textColor = .white
     }
 

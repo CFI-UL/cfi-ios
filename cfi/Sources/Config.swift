@@ -29,5 +29,5 @@ class Config {
     static let keychainService: String = "ca.cfiul.cfi"
     static let keychainAccessGroup: String = "ca.cfiul.shared"
     static let preserveSession: Bool = false
-    //static let mockAuth: Bool = true
+    static let mockAuth: Bool = true
 }

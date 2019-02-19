@@ -48,23 +48,27 @@ class SesameViewController: BaseViewController, SesameViewDelegate {
         self.mainView.delegate = self
     }
 
+    func didRequestClose() {
+        self.dismiss(animated: true)
+    }
+
     func didOpenDoor() {
         DoorService.sendRequest(callback: { error in
             if let error = error {
                 switch error.statusCode {
                 case .unauthorized:
                     Authentification.shared.clearToken()
-                    self.present(NavigationController(rootViewController: AuthViewController()), animated: true, completion: nil)
+                    self.present(NavigationController(rootViewController: AuthViewController()), animated: true)
                 case .tooManyRequest:
                     let alertViewController = UIAlertController(title: "Request pending", message: "A request is already waiting for approval", preferredStyle: .alert)
-                    alertViewController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                    alertViewController.addAction(UIAlertAction(title: "ok", style: .default))
 
-                    self.present(alertViewController, animated: true, completion: nil)
+                    self.present(alertViewController, animated: true)
                 default:
                     let alertViewController = UIAlertController(title: "Error", message: "Could not open the door (\(error.statusCode.rawValue))", preferredStyle: .alert)
-                    alertViewController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                    alertViewController.addAction(UIAlertAction(title: "ok", style: .default))
 
-                    self.present(alertViewController, animated: true, completion: nil)
+                    self.present(alertViewController, animated: true)
                 }
             }
         })
@@ -78,7 +82,7 @@ class SesameViewController: BaseViewController, SesameViewDelegate {
         let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
         viewController.modalPresentationStyle = .formSheet
         viewController.delegate = self
-        self.present(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true)
     }
 }
 
@@ -90,6 +94,6 @@ extension SesameViewController: INUIAddVoiceShortcutViewControllerDelegate {
     }
 
     func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true)
     }
 }

@@ -23,6 +23,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,20 +36,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.backgroundColor = .white
         self.window!.tintColor = .primary
 
-        if !Config.preserveSession {
-            Authentification.shared.clearToken()
-        }
+        if !Config.preserveSession { Authentification.shared.clearToken() }
 
         if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             QuickActions(shortcutItem.type, delegate: self).process(shortcutItem.userInfo)
         } else {
             self.window!.rootViewController =
                 Authentification.shared.isAuthentificated() ?
-                    SesameViewController() :
+                    RootViewController() :
                     AuthViewController()
         }
 
         self.window!.makeKeyAndVisible()
+
+        //self.setupNotification()
 
         return true
     }
@@ -68,21 +69,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CFIScheme(command, delegate: self).process(components.queryItems)
         return true
     }
+
+    private func setupNotification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+            guard error == nil && granted else { return }
+
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                guard settings.authorizationStatus == .authorized else { return }
+
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // let token = deviceToken.map { data in String(format: "%02.2hhx", data) }.joined()
+        // POST token to server
+    }
 }
 
 extension AppDelegate: AuthentificationDelegate {
     func didAuthenticate() {
         self.window?.rootViewController?.dismiss(animated: true, completion: {
-            self.window?.rootViewController?.present(SesameViewController(), animated: true, completion: nil)
+            self.window?.rootViewController?.present(SesameViewController(), animated: true)
         })
     }
 
     func didCancelAuthentification() {
         self.window?.rootViewController?.dismiss(animated: true, completion: {
             let alertViewController = UIAlertController(title: "Error", message: "Could not sign in with slack", preferredStyle: .alert)
-            alertViewController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+            alertViewController.addAction(UIAlertAction(title: "ok", style: .default))
 
-            self.window?.rootViewController?.present(alertViewController, animated: true, completion: nil)
+            self.window?.rootViewController?.present(alertViewController, animated: true)
         })
     }
 }

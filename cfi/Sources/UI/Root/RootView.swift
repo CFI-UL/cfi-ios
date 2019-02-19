@@ -26,35 +26,46 @@ import UIKit
 import PinLayout
 
 protocol RootViewDelegate: class {
-    func didOpenDoor()
-}
-
-fileprivate enum DoorState {
-    case closed, loading, requested, opening
+    func didRequestTransition(to viewController: UIViewController)
 }
 
 class RootView: UIView {
     weak var delegate: RootViewDelegate?
 
-    private let doorButton = UIButton()
-    private let logo = UIImageView()
+    private let refreshView = UIView()
+    private let collectionView: UICollectionView
+    private let buttons = [
+        ("Events", #imageLiteral(resourceName: "events")),
+        ("Contests", #imageLiteral(resourceName: "contests")),
+        ("Projects", #imageLiteral(resourceName: "projects")),
+        ("Photos", #imageLiteral(resourceName: "photos")),
+        ("Sesame", #imageLiteral(resourceName: "sesame"))
+    ]
 
-    private var doorState: DoorState = .closed
+    private var name: String = ""
+    private var profileImage: UIImage?
 
     init() {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 50, right: 50)
+        layout.minimumInteritemSpacing = 25
+        layout.minimumLineSpacing = 25
+
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.collectionView.backgroundColor = .white
+
         super.init(frame: .zero)
+        self.backgroundColor = .primary
 
-        self.addSubview(self.doorButton)
-        self.addSubview(self.logo)
+        self.addSubview(self.collectionView)
+        self.collectionView.addSubview(self.refreshView)
 
-        self.backgroundColor = .white
+        self.collectionView.register(RootCollectionViewCell.self, forCellWithReuseIdentifier: "root-cell")
+        self.collectionView.register(RootHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "root-header")
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
 
-        self.logo.image = #imageLiteral(resourceName: "LogoCFI")
-
-        self.doorButton.setTitle("OPEN THE DOOR", for: .normal)
-        self.doorButton.backgroundColor = .primary
-        self.doorButton.setTitleColor(.white, for: .normal)
-        self.doorButton.addTarget(self, action: #selector(self.openDoor), for: .touchUpInside)
+        self.refreshView.backgroundColor = .primary
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -64,16 +75,63 @@ class RootView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.logo.pin.width(50%).maxWidth(300).aspectRatio().center().marginTop(-48)
-        self.doorButton.pin.below(of: self.logo).height(45).width(90%).maxWidth(300).hCenter().marginTop(48)
-        self.doorButton.layer.cornerRadius = self.doorButton.bounds.height/2
-
-//        switch self.doorState {
-//            case
-//        }
+        self.collectionView.pin.horizontally().top(pin.safeArea.top).bottom()
+        self.refreshView.pin.above(of: self.collectionView).horizontally().height(of: self.collectionView)
     }
 
-    @objc func openDoor(sender: Any) {
-        self.delegate?.didOpenDoor()
+    func setUserInfo(name: String, profileImage: UIImage) {
+        self.name = name
+        self.profileImage = profileImage
+        self.collectionView.reloadData() // should only reload the header
+    }
+}
+
+extension RootView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize = (self.bounds.width - (2*50) - 25) / 2
+        return CGSize(width: cellSize, height: cellSize)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.bounds.width, height: 290)
+    }
+}
+
+extension RootView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.buttons.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "root-cell", for: indexPath) as? RootCollectionViewCell ?? RootCollectionViewCell()
+        cell.configure(title: self.buttons[indexPath.row].0, icon: self.buttons[indexPath.row].1)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
+        }
+
+        let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "root-header", for: indexPath) as? RootHeaderView ?? RootHeaderView()
+        //        header.setUserInfo(name: self.name, profileImage: self.profileImage ?? UIImage()) // replace with default image
+        return header
+    }
+}
+
+extension RootView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var viewController: UIViewController
+        // could remove this with a view controller factory and an enum entry stored in the button array
+        switch indexPath.row {
+        case 0: return
+        case 1: return
+        case 2: return
+        case 3: return
+        case 4: viewController = SesameViewController()
+        default: return
+        }
+
+        self.delegate?.didRequestTransition(to: viewController)
     }
 }

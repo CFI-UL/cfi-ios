@@ -41,19 +41,18 @@ class AuthView: UIView {
 
     init() {
         super.init(frame: .zero)
+        self.backgroundColor = .primary
 
         self.addSubview(self.titleLabel)
         self.addSubview(self.featureView)
         self.addSubview(self.loginButton)
         self.addSubview(self.joinSlackButton)
 
-        self.backgroundColor = .primary
-
         self.loginButton.setImage(#imageLiteral(resourceName: "SlackLogin"), for: .normal)
         self.loginButton.imageView?.contentMode = .scaleAspectFit
         self.loginButton.addTarget(self, action: #selector(self.login), for: .touchUpInside)
 
-        self.joinSlackButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        self.joinSlackButton.titleLabel?.font = UIFont.apercu(ofSize: 16)
         self.joinSlackButton.setTitleColor(.translucentWhite, for: .normal)
         self.joinSlackButton.setTitleColor(UIColor.translucentWhite.alterOpacity(by: -0.3), for: .highlighted)
         self.joinSlackButton.setTitle("Join the Slack", for: .normal)

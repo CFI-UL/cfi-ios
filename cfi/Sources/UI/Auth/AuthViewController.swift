@@ -50,11 +50,11 @@ class AuthViewController: BaseViewController, AuthViewDelegate {
 
     func didInitiateLogin() {
         let safariViewController = SFSafariViewController(url: Authentification.authorizationURL)
-        self.present(safariViewController, animated: true, completion: nil)
+        self.present(safariViewController, animated: true)
     }
 
     func didInitiateJoin() {
         let safariViewController = SFSafariViewController(url: URL(string: Config.joinSlackHost)!)
-        self.present(safariViewController, animated: true, completion: nil)
+        self.present(safariViewController, animated: true)
     }
 }

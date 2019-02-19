@@ -36,7 +36,7 @@ class RootViewController: BaseViewController, RootViewDelegate {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.title = "CFI"
+        self.title = "Home"
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -48,20 +48,7 @@ class RootViewController: BaseViewController, RootViewDelegate {
         self.mainView.delegate = self
     }
 
-    func didOpenDoor() {
-        DoorService.sendRequest(callback: { error in
-            if let error = error {
-                if error.statusCode == .unauthorized {
-                    Authentification.shared.clearToken()
-                    self.navigationController?.present(NavigationController(rootViewController: AuthViewController()), animated: true, completion: nil)
-                    return
-                }
-
-                let alertViewController = UIAlertController(title: "Error", message: "Could not open the door (\(error.statusCode.rawValue))", preferredStyle: .alert)
-                alertViewController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
-
-                self.navigationController?.present(alertViewController, animated: true, completion: nil)
-            }
-        })
+    func didRequestTransition(to viewController: UIViewController) {
+        self.present(viewController, animated: true)
     }
 }
