@@ -24,7 +24,7 @@
 			<key>INIntentDescriptionID</key>
 			<string>U7uvWP</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>INIntentName</key>
 			<string>OpenDoor</string>
 			<key>INIntentParameterCombinations</key>
@@ -32,17 +32,17 @@
 				<key></key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
+					<false/>
 					<key>INIntentParameterCombinationSubtitle</key>
 					<string></string>
 					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>Jywxt1</string>
+					<string>9EW2X6</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string></string>
+					<string>Open the CFI door</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>OZvh1C</string>
+					<string>B9MHwY</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -83,7 +83,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>2</integer>
+				<integer>3</integer>
 				<key>INIntentResponseParameters</key>
 				<array/>
 			</dict>

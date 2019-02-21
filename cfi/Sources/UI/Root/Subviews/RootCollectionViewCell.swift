@@ -30,17 +30,6 @@ class RootCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()
     let tintFilter = CALayer()
 
-//    override var isHighlighted: Bool {
-//        get { return super.isHighlighted }
-//        set {
-//            super.isHighlighted = newValue
-//            let newScale: CGFloat = newValue ? 0.95 : 1
-//            UIView.animate(withDuration: 0.125, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
-//                self.transform = CGAffineTransform(scaleX: newScale, y: newScale)
-//            })
-//        }
-//    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(hex: 0xf4f4f6)
@@ -53,6 +42,8 @@ class RootCollectionViewCell: UICollectionViewCell {
         self.titleLabel.textColor = .darkGray
         self.titleLabel.backgroundColor = .white
         self.titleLabel.textAlignment = .center
+        self.titleLabel.adjustsFontSizeToFitWidth = true
+        self.titleLabel.minimumScaleFactor = 0.5
 
         self.imageView.contentMode = .scaleAspectFit
 
@@ -61,7 +52,7 @@ class RootCollectionViewCell: UICollectionViewCell {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.2
 
-        self.wow(delay: 0.5)
+        self.wow(delay: 0.55)
     }
 
     required init(coder aDecoder: NSCoder) {

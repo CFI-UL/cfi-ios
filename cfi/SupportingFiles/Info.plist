@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>apercu-pro-regular.otf</string>
-		<string>apercu-pro-bold.otf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -46,6 +41,11 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>OpenDoorIntent</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>apercu-pro-regular.otf</string>
+		<string>apercu-pro-bold.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

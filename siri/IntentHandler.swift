@@ -33,6 +33,8 @@ class IntentHandler: INExtension, OpenDoorIntentHandling {
         guard Authentification.shared.isAuthentificated() else {
             return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.failureNoAuth, userActivity: nil))
         }
+
+        return completion(OpenDoorIntentResponse(code: OpenDoorIntentResponseCode.success, userActivity: nil))
     }
 
     func handle(intent: OpenDoorIntent, completion: @escaping (OpenDoorIntentResponse) -> Void) {

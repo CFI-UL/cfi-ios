@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: AuthentificationDelegate {
     func didAuthenticate() {
         self.window?.rootViewController?.dismiss(animated: true, completion: {
-            self.window?.rootViewController?.present(self.viewControllerFactory.sesameViewController(), animated: true)
+            self.window?.rootViewController?.present(self.viewControllerFactory.rootViewController(), animated: true)
         })
     }
 

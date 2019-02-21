@@ -100,6 +100,7 @@
 		FE3037D9221B81810023487D /* apercu-pro-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "apercu-pro-regular.otf"; sourceTree = "<group>"; };
 		FE3037DC221BD1CD0023487D /* RootHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootHeaderView.swift; sourceTree = "<group>"; };
 		FE3037DE221BD2110023487D /* RootCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCollectionViewCell.swift; sourceTree = "<group>"; };
+		FE68D448221E3C2F00BBCBD3 /* siri.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = siri.entitlements; sourceTree = "<group>"; };
 		FE7740F122182010008EE74E /* cfi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cfi.entitlements; sourceTree = "<group>"; };
 		FE7740F222182083008EE74E /* Door.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Door.intentdefinition; sourceTree = "<group>"; };
 		FE77410822182A5B008EE74E /* IntentDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentDonation.swift; sourceTree = "<group>"; };
@@ -213,6 +214,7 @@
 		FE9D410D22181EF800B5028A /* siri */ = {
 			isa = PBXGroup;
 			children = (
+				FE68D448221E3C2F00BBCBD3 /* siri.entitlements */,
 				FE9D410E22181EF800B5028A /* IntentHandler.swift */,
 				FE9D411022181EF800B5028A /* Info.plist */,
 				FE7740F222182083008EE74E /* Door.intentdefinition */,
@@ -404,6 +406,11 @@
 				TargetAttributes = {
 					FE9D410B22181EF800B5028A = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					FEFDA340220FEE84001D02E2 = {
 						CreatedOnToolsVersion = 10.1;
@@ -609,6 +616,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6FDE8AFC6727779CA21534C /* Pods-siri.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = siri/siri.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LYG6KRX2T;
 				INFOPLIST_FILE = siri/Info.plist;
@@ -629,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B785968423AD6236EEC88EDF /* Pods-siri.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = siri/siri.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LYG6KRX2T;
 				INFOPLIST_FILE = siri/Info.plist;

@@ -53,8 +53,8 @@ class RootHeaderView: UICollectionReusableView {
         self.layoutSubviews()
         self.welcomeLabel.wow(type: .fadeInDown, delay: 0.25)
         self.nameLabel.wow(type: .fadeInDown, delay: 0.2)
-        self.titleLabel.wow(type: .fadeInRight, delay: 0.2)
-        self.profileImageView.wow(type: .fadeIn, delay: 0.35)
+        self.titleLabel.wow(type: .fadeInRight, delay: 0.55)
+        self.profileImageView.wow(type: .fadeIn, delay: 0.3)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -68,10 +68,11 @@ class RootHeaderView: UICollectionReusableView {
         let padding: CGFloat = 50
 
         self.welcomeLabel.pin.left(pin.safeArea.left + padding).top(pin.safeArea.top + padding).sizeToFit()
-        self.nameLabel.pin.below(of: self.welcomeLabel, aligned: .start).size(of: self.welcomeLabel)
 
         self.profileImageView.pin.below(of: self.welcomeLabel).right(pin.safeArea.right + padding).size(90)
         self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.height / 2
+
+        self.nameLabel.pin.below(of: self.welcomeLabel).left(padding).right(to: self.profileImageView.edge.left).height(of: self.welcomeLabel).marginRight(20)
 
         self.titleLabel.pin.below(of: self.nameLabel, aligned: .start).marginTop(titleLabelMargin).sizeToFit()
         self.pin.height(pin.safeArea.top +

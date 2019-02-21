@@ -32,7 +32,7 @@ enum WowAnimationType {
 }
 
 extension UIView {
-    func wow(type: WowAnimationType = .fadeIn, delay: TimeInterval = 0, duration: TimeInterval = 0.3, mode: UIView.AnimationOptions = .curveEaseOut) {
+    func wow(type: WowAnimationType = .fadeIn, delay: TimeInterval = 0, duration: TimeInterval = 0.25, mode: UIView.AnimationOptions = .curveEaseOut) {
         var alpha: Float = 1
         var scale: CGFloat = 1
         var tx: CGFloat = 0
@@ -53,13 +53,46 @@ extension UIView {
         default: break
         }
 
+//        CATransaction.begin()
+//
+//        let origin = CATransform3D(m11: scale, m12: 0, m13: 0, m14: 0, m21: 0, m22: scale, m23: 0, m24: 0, m31: 0, m32: 0, m33: 1, m34: 0, m41: tx, m42: ty, m43: 0, m44: 1)
+////        self.layer.transform = origin
+////        self.layer.opacity = alpha
+//
+//        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+//        fadeAnimation.fromValue = alpha
+//        fadeAnimation.toValue = 1
+//
+//        let transformAnimation = CABasicAnimation(keyPath: "transform")
+//        transformAnimation.fromValue = origin
+//        transformAnimation.toValue = CATransform3D(m11: 1, m12: 0, m13: 0, m14: 0, m21: 0, m22: 1, m23: 0, m24: 0, m31: 0, m32: 0, m33: 1, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1)
+//
+//        let animations = CAAnimationGroup()
+//        animations.duration = duration
+//        animations.timingFunction = CAMediaTimingFunction(controlPoints: 0.4, 0, 0.2, 1)
+//        animations.fillMode = .forwards
+//        animations.isRemovedOnCompletion = true
+//        animations.timeOffset = delay
+//        animations.animations = [fadeAnimation, transformAnimation]
+//
+////        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+//            self.layer.add(animations, forKey: "wow")
+////        }
+//
+//        CATransaction.commit()
         self.layer.opacity = alpha
-        self.transform = CGAffineTransform(a: scale, b: 0, c: 0, d: scale, tx: tx, ty: ty)
+        self.layer.transform = CATransform3D(m11: scale, m12: 0,     m13: 0, m14: 0,
+                                             m21: 0,     m22: scale, m23: 0, m24: 0,
+                                             m31: 0,     m32: 0,     m33: 1, m34: 0,
+                                             m41: tx,    m42: ty,    m43: 0, m44: 1)
         self.setNeedsLayout()
 
         UIView.animate(withDuration: duration, delay: delay, options: mode, animations: {
             self.layer.opacity = 1
-            self.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0)
+            self.layer.transform = CATransform3D(m11: 1, m12: 0, m13: 0, m14: 0,
+                                                 m21: 0, m22: 1, m23: 0, m24: 0,
+                                                 m31: 0, m32: 0, m33: 1, m34: 0,
+                                                 m41: 0, m42: 0, m43: 0, m44: 1)
         })
     }
 }

@@ -23,11 +23,18 @@
 //
 
 class Config {
+    static let preserveSession: Bool = true
+    static let mockAuth: Bool = false
+
     static let slackClientId: String = "86349330102.552696997859"
     static let apiHost: String = "http://web.poptheshell.com:8888"
     static let joinSlackHost: String = "http://slack.cfiul.ca"
     static let keychainService: String = "ca.cfiul.cfi"
-    static let keychainAccessGroup: String = "ca.cfiul.shared"
-    static let preserveSession: Bool = false
-    static let mockAuth: Bool = true
+    static let appIdentifierPrefix: String = "7LYG6KRX2T"
+    static let keychainGroup: String = "shared"
+    static let syncKeychain: Bool = true
+
+    static var keychainAccessGroup: String {
+        return "\(Config.appIdentifierPrefix).\(Config.keychainGroup)"
+    }
 }

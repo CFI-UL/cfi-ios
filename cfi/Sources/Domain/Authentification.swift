@@ -43,14 +43,13 @@ class Authentification {
         return URL(string: "\(host)?scope=\(scope)&client_id=\(Config.slackClientId)&redirect_uri=\(redirectURI)")!
     }
 
-    let keychain = Keychain(service: Config.keychainService, accessGroup: Config.keychainAccessGroup)
+    let keychain = Keychain(service: Config.keychainService, accessGroup: Config.keychainAccessGroup).synchronizable(Config.syncKeychain)
 
     func saveToken(_ token: String) {
         self.keychain["access_token"] = token
     }
 
     func getToken() -> String {
-        
         return self.keychain["access_token"] ?? ""
     }
 
