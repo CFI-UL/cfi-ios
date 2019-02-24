@@ -589,7 +589,7 @@ public class Request {
             if error != nil {
                 self.set(error: RequestError(url: self.urlRequest!.url, method: self.urlRequest!.method, statusCode: .urlSessionError))
                 self.response!.parse(data: data, error: self._error)
-                return callback()
+                return DispatchQueue.main.async { return callback() }
             }
 
             if let response = response as? HTTPURLResponse {
@@ -605,7 +605,7 @@ public class Request {
             guard let data = data else {
                 self.set(error: RequestError(url: self.urlRequest!.url, method: self.urlRequest!.method, statusCode: .invalidData))
                 self.response!.parse(data: nil, error: self._error)
-                return callback()
+                return DispatchQueue.main.async { return callback() }
             }
 
             RequestLogger.log(.debug, "parsing (\(self.requestId))")
