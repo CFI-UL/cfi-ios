@@ -22,12 +22,14 @@
 //    SOFTWARE.
 //
 
-import Foundation
+import WatchKit
+import WatchConnectivity
 
-extension String {
-    public func b64Decode() -> String {
-        guard let data = Data(base64Encoded: self) else { return "" }
-        guard let string = String(data: data, encoding: .utf8) else { return "" }
-        return string
+class MessageInterfaceController: BaseInterfaceController {
+    @IBOutlet weak var messageLabel: WKInterfaceLabel!
+    
+    init(session: WCSession, message: String) {
+        super.init(session: session)
+        self.messageLabel.setText(message)
     }
 }

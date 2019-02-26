@@ -23,21 +23,12 @@
 //
 
 import WatchKit
-import Foundation
+import WatchConnectivity
 
+class RequireAuthInterfaceController: MessageInterfaceController {
+    let message = "You'll need to sign in using the app first"
 
-class InterfaceController: WKInterfaceController {
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        
-    }
-    
-    override func willActivate() {
-        super.willActivate()
-
-    }
-
-    @IBAction func openButton() {
-        
+    init(session: WCSession) {
+        super.init(session: session, message: self.message)
     }
 }

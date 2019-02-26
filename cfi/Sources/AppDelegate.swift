@@ -24,11 +24,13 @@
 
 import UIKit
 import UserNotifications
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private let viewControllerFactory = ViewControllerFactory()
     private var window: UIWindow?
+    private var watchSession: WCSession?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Stylesheet.appearance()
@@ -48,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
 
         //self.setupNotification()
+        self.setupWatchConnection()
 
         return true
     }
@@ -82,6 +85,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    private func setupWatchConnection() {
+        guard WCSession.isSupported() else { return }
+        self.watchSession = WCSession.default
+        self.watchSession?.delegate = self
+        self.watchSession?.activate()
+    }
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // let token = deviceToken.map { data in String(format: "%02.2hhx", data) }.joined()
         // POST token to server
@@ -106,7 +116,38 @@ extension AppDelegate: AuthentificationDelegate {
 }
 
 extension AppDelegate: QuickActionsDelegate {
-    func didOpenDoor() {
+    func quickActions(quickActions: QuickActions, didOpenDoor: Bool) {
         self.window?.rootViewController = self.viewControllerFactory.sesameViewController(shouldSendRequest: true)
+    }
+}
+
+extension AppDelegate: WatchActionsDelegate {
+    func watchActions(watchActions: WatchActions, didCheckAuth: Bool) {
+        //return Authentification.shared.isAuthentificated()
+    }
+
+    func watchActions(watchActions: WatchActions, didOpenDoor: Bool) {
+        guard Authentification.shared.isAuthentificated() else { return }
+        DoorService.sendRequest { error in
+            guard error == nil else {
+                // return error
+                return
+            }
+
+            // return success
+        }
+    }
+}
+
+extension AppDelegate: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+    func sessionDidDeactivate(_ session: WCSession) { }
+
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        guard let command = message["action"] as? String else { return }
+        DispatchQueue.main.async {
+            WatchActions(command, delegate: self).process(message)
+        }
     }
 }

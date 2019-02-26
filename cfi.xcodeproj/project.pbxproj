@@ -41,12 +41,17 @@
 		FEC423DC2220A07F002255FE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC423DA2220A07F002255FE /* Interface.storyboard */; };
 		FEC423DE2220A081002255FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC423DD2220A081002255FE /* Assets.xcassets */; };
 		FEC423E52220A081002255FE /* watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FEC423E42220A081002255FE /* watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FEC423EA2220A081002255FE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC423E92220A081002255FE /* InterfaceController.swift */; };
 		FEC423EC2220A081002255FE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC423EB2220A081002255FE /* ExtensionDelegate.swift */; };
 		FEC423EE2220A082002255FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC423ED2220A082002255FE /* Assets.xcassets */; };
 		FEC423F22220A082002255FE /* watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FEC423D82220A07F002255FE /* watch.app */; };
 		FEC423FF2220F435002255FE /* apercu-pro-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE3037D8221B81810023487D /* apercu-pro-bold.otf */; };
 		FEC424002220F439002255FE /* apercu-pro-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE3037D9221B81810023487D /* apercu-pro-regular.otf */; };
+		FEC42402222269E9002255FE /* WatchActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC42401222269E9002255FE /* WatchActions.swift */; };
+		FEC4240422226C44002255FE /* WatchActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC42401222269E9002255FE /* WatchActions.swift */; };
+		FEC4240722227149002255FE /* RootInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4240622227149002255FE /* RootInterfaceController.swift */; };
+		FEC4240A2222720B002255FE /* BaseInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC424092222720B002255FE /* BaseInterfaceController.swift */; };
+		FEC4240C222273AA002255FE /* MessageInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4240B222273AA002255FE /* MessageInterfaceController.swift */; };
+		FEC4240E222275E2002255FE /* RequireAuthInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4240D222275E2002255FE /* RequireAuthInterfaceController.swift */; };
 		FECFAE512218AB6000CAFCE2 /* SesameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E5221877DC0054936D /* SesameViewController.swift */; };
 		FECFAE522218AB6400CAFCE2 /* SesameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27F3E4221877DC0054936D /* SesameView.swift */; };
 		FECFAE542218FCA400CAFCE2 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */; };
@@ -161,10 +166,14 @@
 		FEC423DD2220A081002255FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEC423DF2220A081002255FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEC423E42220A081002255FE /* watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEC423E92220A081002255FE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		FEC423EB2220A081002255FE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		FEC423ED2220A082002255FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEC423EF2220A082002255FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEC42401222269E9002255FE /* WatchActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchActions.swift; sourceTree = "<group>"; };
+		FEC4240622227149002255FE /* RootInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInterfaceController.swift; sourceTree = "<group>"; };
+		FEC424092222720B002255FE /* BaseInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterfaceController.swift; sourceTree = "<group>"; };
+		FEC4240B222273AA002255FE /* MessageInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInterfaceController.swift; sourceTree = "<group>"; };
+		FEC4240D222275E2002255FE /* RequireAuthInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequireAuthInterfaceController.swift; sourceTree = "<group>"; };
 		FECFAE532218FCA400CAFCE2 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		FECFAE552218FE5D00CAFCE2 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		FEFDA341220FEE84001D02E2 /* cfi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cfi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,7 +338,7 @@
 		FEC423FC2220A109002255FE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FEC423E92220A081002255FE /* InterfaceController.swift */,
+				FEC424052222712B002255FE /* UI */,
 				FEC423EB2220A081002255FE /* ExtensionDelegate.swift */,
 			);
 			path = Sources;
@@ -350,6 +359,25 @@
 				FEC423DF2220A081002255FE /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FEC424052222712B002255FE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FEC42408222271FA002255FE /* Common */,
+				FEC4240622227149002255FE /* RootInterfaceController.swift */,
+				FEC4240D222275E2002255FE /* RequireAuthInterfaceController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FEC42408222271FA002255FE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FEC424092222720B002255FE /* BaseInterfaceController.swift */,
+				FEC4240B222273AA002255FE /* MessageInterfaceController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		FEFDA338220FEE83001D02E2 = {
@@ -396,6 +424,7 @@
 				FE77410822182A5B008EE74E /* IntentDonation.swift */,
 				FE9F387D2217C9B600A204CC /* CFIScheme.swift */,
 				FE9D40F62218187000B5028A /* QuickActions.swift */,
+				FEC42401222269E9002255FE /* WatchActions.swift */,
 				FEFDA344220FEE84001D02E2 /* AppDelegate.swift */,
 				FE9F387622179F6B00A204CC /* Config.swift */,
 			);
@@ -739,8 +768,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC4240422226C44002255FE /* WatchActions.swift in Sources */,
+				FEC4240722227149002255FE /* RootInterfaceController.swift in Sources */,
 				FEC423EC2220A081002255FE /* ExtensionDelegate.swift in Sources */,
-				FEC423EA2220A081002255FE /* InterfaceController.swift in Sources */,
+				FEC4240A2222720B002255FE /* BaseInterfaceController.swift in Sources */,
+				FEC4240C222273AA002255FE /* MessageInterfaceController.swift in Sources */,
+				FEC4240E222275E2002255FE /* RequireAuthInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +808,7 @@
 				FE9D40F72218187000B5028A /* QuickActions.swift in Sources */,
 				FE9F387E2217C9B600A204CC /* CFIScheme.swift in Sources */,
 				FE9F387522177BF300A204CC /* AuthView.swift in Sources */,
+				FEC42402222269E9002255FE /* WatchActions.swift in Sources */,
 				FEFDA366221000EE001D02E2 /* BaseViewController.swift in Sources */,
 				FE9D40F522180E8F00B5028A /* DoorService.swift in Sources */,
 			);

@@ -22,12 +22,26 @@
 //    SOFTWARE.
 //
 
-import Foundation
+import WatchKit
+import WatchConnectivity
 
-extension String {
-    public func b64Decode() -> String {
-        guard let data = Data(base64Encoded: self) else { return "" }
-        guard let string = String(data: data, encoding: .utf8) else { return "" }
-        return string
+class BaseInterfaceController: WKInterfaceController {
+    weak var session: WCSession?
+
+    init(session: WCSession) {
+        self.session = session
+        super.init()
+    }
+
+    func validateSession() -> Bool {
+        guard self.session != nil && self.session!.isReachable else {
+            self.presentAlert(withTitle: "Error",
+                              message: "Could not make a connection with the app.",
+                              preferredStyle: .alert,
+                              actions: [WKAlertAction(title: "ok", style: .default, handler: {})])
+            return false
+        }
+
+        return true
     }
 }

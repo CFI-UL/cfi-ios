@@ -22,12 +22,19 @@
 //    SOFTWARE.
 //
 
-import Foundation
+import WatchKit
 
-extension String {
-    public func b64Decode() -> String {
-        guard let data = Data(base64Encoded: self) else { return "" }
-        guard let string = String(data: data, encoding: .utf8) else { return "" }
-        return string
+class RootInterfaceController: BaseInterfaceController {
+    @IBAction func openButton() {
+        guard self.validateSession() else {
+            return
+        }
+
+        self.session?.sendMessage(["action": WatchActionType.openDoor], replyHandler: nil, errorHandler: { error in
+            self.presentAlert(withTitle: "Error",
+                              message: "Could not open the door.",
+                              preferredStyle: .alert,
+                              actions: [WKAlertAction(title: "ok", style: .default, handler: {})])
+        })
     }
 }

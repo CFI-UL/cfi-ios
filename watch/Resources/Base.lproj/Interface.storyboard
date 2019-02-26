@@ -17,19 +17,38 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Interface Controller-->
+        <!--Message Interface Controller-->
+        <scene sceneID="jls-UU-6wv">
+            <objects>
+                <controller id="mEE-c8-e10" customClass="MessageInterfaceController" customModule="watch_Extension">
+                    <items>
+                        <label alignment="left" text="Sesame" id="6no-yP-4js">
+                            <fontDescription key="font" name="ApercuPro-Bold" family="Apercu Pro" pointSize="20"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="You'll need to sign in using the app first" textAlignment="center" numberOfLines="0" id="IRN-l4-fhf">
+                            <fontDescription key="font" name="ApercuPro-Regular" family="Apercu Pro" pointSize="15"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="messageLabel" destination="IRN-l4-fhf" id="c5L-zW-3Sc"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="325" y="391"/>
+        </scene>
+        <!--Root Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watch" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="RootInterfaceController" customModule="watch_Extension">
                     <items>
                         <label alignment="left" text="Sesame" id="FHG-8h-K3Z">
                             <fontDescription key="font" name="ApercuPro-Bold" family="Apercu Pro" pointSize="20"/>
                         </label>
-                        <button width="1" alignment="left" title="Send open request" id="Cv7-1j-Pxg">
+                        <button width="1" alignment="center" verticalAlignment="center" title="Send open request" id="Cv7-1j-Pxg">
                             <color key="titleColor" red="0.71201034330985913" green="0.32024919368912902" blue="0.31403076278681541" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" name="ApercuPro-Regular" family="Apercu Pro" pointSize="15"/>
                             <connections>
-                                <action selector="openButton" destination="AgC-eL-Hgc" id="cj9-sq-fZf"/>
+                                <action selector="openButton" destination="AgC-eL-Hgc" id="LPU-Q8-EwK"/>
                             </connections>
                         </button>
                     </items>

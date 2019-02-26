@@ -24,8 +24,8 @@
 
 import Foundation
 
-class JSONWebToken {
-    static func decodeData(from token: String) -> [String: Any]? {
+public class JSONWebToken {
+    public static func decodeData(from token: String) -> [String: Any]? {
         let components = token.components(separatedBy: ".")
         guard components.count == 3 else { return nil }
 

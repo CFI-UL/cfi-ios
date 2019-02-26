@@ -22,12 +22,31 @@
 //    SOFTWARE.
 //
 
-import Foundation
+import WatchConnectivity
 
-extension String {
-    public func b64Decode() -> String {
-        guard let data = Data(base64Encoded: self) else { return "" }
-        guard let string = String(data: data, encoding: .utf8) else { return "" }
-        return string
+protocol WatchActionsDelegate: class {
+    func watchActions(watchActions: WatchActions, didCheckAuth: Bool)
+    func watchActions(watchActions: WatchActions, didOpenDoor: Bool)
+}
+
+public enum WatchActionType: String {
+    case checkAuth = "CheckAuth"
+    case openDoor = "OpenDoor"
+}
+
+class WatchActions {
+    weak var delegate: WatchActionsDelegate?
+    let command: WatchActionType
+
+    init(_ command: String, delegate: WatchActionsDelegate) {
+        self.command = WatchActionType(rawValue: command)!
+        self.delegate = delegate
+    }
+
+    func process(_ data: [String: Any]? = nil) {
+        switch self.command {
+        case .checkAuth: self.delegate?.watchActions(watchActions: self, didCheckAuth: true)
+        case .openDoor: self.delegate?.watchActions(watchActions: self, didOpenDoor: true)
+        }
     }
 }

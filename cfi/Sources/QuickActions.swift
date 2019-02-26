@@ -25,7 +25,7 @@
 import UIKit
 
 protocol QuickActionsDelegate: class {
-    func didOpenDoor()
+    func quickActions(quickActions: QuickActions, didOpenDoor: Bool)
 }
 
 enum QuickActionType: String {
@@ -49,7 +49,7 @@ class QuickActions {
 
     func process(_ userInfo: [String: NSSecureCoding]? = nil) {
         switch self.command {
-        case .openDoor: self.delegate?.didOpenDoor()
+        case .openDoor: self.delegate?.quickActions(quickActions: self, didOpenDoor: true)
         }
     }
 

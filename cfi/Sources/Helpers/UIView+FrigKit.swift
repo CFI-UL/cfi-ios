@@ -24,7 +24,7 @@
 
 import UIKit
 
-enum WowAnimationType {
+public enum WowAnimationType {
     case up, down, left, right
     case fadeIn, fadeInUp, fadeInDown, fadeInLeft, fadeInRight
     case scaleIn, scaleInUp, scaleInDown, scaleInLeft, scaleInRight
@@ -53,33 +53,6 @@ extension UIView {
         default: break
         }
 
-//        CATransaction.begin()
-//
-//        let origin = CATransform3D(m11: scale, m12: 0, m13: 0, m14: 0, m21: 0, m22: scale, m23: 0, m24: 0, m31: 0, m32: 0, m33: 1, m34: 0, m41: tx, m42: ty, m43: 0, m44: 1)
-////        self.layer.transform = origin
-////        self.layer.opacity = alpha
-//
-//        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
-//        fadeAnimation.fromValue = alpha
-//        fadeAnimation.toValue = 1
-//
-//        let transformAnimation = CABasicAnimation(keyPath: "transform")
-//        transformAnimation.fromValue = origin
-//        transformAnimation.toValue = CATransform3D(m11: 1, m12: 0, m13: 0, m14: 0, m21: 0, m22: 1, m23: 0, m24: 0, m31: 0, m32: 0, m33: 1, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1)
-//
-//        let animations = CAAnimationGroup()
-//        animations.duration = duration
-//        animations.timingFunction = CAMediaTimingFunction(controlPoints: 0.4, 0, 0.2, 1)
-//        animations.fillMode = .forwards
-//        animations.isRemovedOnCompletion = true
-//        animations.timeOffset = delay
-//        animations.animations = [fadeAnimation, transformAnimation]
-//
-////        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-//            self.layer.add(animations, forKey: "wow")
-////        }
-//
-//        CATransaction.commit()
         self.layer.opacity = alpha
         self.layer.transform = CATransform3D(m11: scale, m12: 0,     m13: 0, m14: 0,
                                              m21: 0,     m22: scale, m23: 0, m24: 0,

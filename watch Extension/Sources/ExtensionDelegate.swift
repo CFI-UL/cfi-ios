@@ -23,8 +23,24 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    var session: WCSession?
+
+    func applicationDidBecomeActive() {
+        self.setupConnectivity()
+        // check if auth and display the right view
+
+    }
+
+    private func setupConnectivity() {
+        guard WCSession.isSupported() else { return }
+        self.session = WCSession.default
+        self.session?.delegate = self
+        self.session?.activate()
+    }
+
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
         for task in backgroundTasks {
@@ -52,5 +68,17 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 task.setTaskCompletedWithSnapshot(false)
             }
         }
+    }
+}
+
+extension ExtensionDelegate: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        guard error == nil else { return }
+
+        self.session?.sendMessage(["action": WatchActionType.checkAuth], replyHandler: { response in
+
+        }, errorHandler: { error in
+
+        })
     }
 }
